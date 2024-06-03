@@ -1,8 +1,12 @@
 package com.capgemini.wsb.fitnesstracker.user.api;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Interface (API) for querying {@link User} entities through the API.
+ */
 public interface UserProvider {
 
     /**
@@ -26,8 +30,28 @@ public interface UserProvider {
     /**
      * Retrieves all users.
      *
-     * @return An {@link Optional} containing the all users,
+     * @return An {@link List} containing all users
      */
     List<User> findAllUsers();
 
+    /**
+     * LAB1: get user by email
+     * @param email user email
+     * @return users lists
+     * */
+    List<User> getUserByTheirEmail(String email);
+
+    /**
+     * LAB1: get user by bithdate
+     * @param bithdate user bithdate
+     * @return users lists
+     * */
+    List<User> getUserByTheirBithdate(LocalDate bithdate);
+
+    /**
+     * LAB1: Get users born later than "time"
+     * @param time limit of birthdate.
+     * @return users list
+     */
+    List<User> getUsersBornLaterThan(LocalDate time);
 }
