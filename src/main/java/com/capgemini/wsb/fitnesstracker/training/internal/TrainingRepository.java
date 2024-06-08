@@ -48,4 +48,15 @@ interface TrainingRepository extends JpaRepository<Training, Long> {
                 .filter(training -> training.getEndTime().compareTo(afterTime) > 0)
                 .toList();
     }
+
+    /**
+     * LAST_CHANCE: Show trainings that are longer than X km(s)
+     * @param distance training distance
+     * @return training list
+     */
+    default List<Training> getAllTrainingsAboveXKM(double distance){
+        return findAll().stream()
+                .filter(training -> training.getDistance() == distance )
+                .toList();
+    }
 }

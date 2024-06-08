@@ -108,4 +108,14 @@ class TrainingServiceImpl implements TrainingProvider {
 
         return trainingRepository.save(updatedUser);
     }
+
+    /**
+     * LAST_CHANCE: Show trainings that are longer than X km(s)
+     * @param distance training distance
+     * @return training list
+     */
+    @Override
+    public List<Training> getAllTrainingsEqualXKM(double distance) {
+        return trainingRepository.getAllTrainingsAboveXKM(distance);
+    }
 }

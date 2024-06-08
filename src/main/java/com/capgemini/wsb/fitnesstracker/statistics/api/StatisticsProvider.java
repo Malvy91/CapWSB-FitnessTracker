@@ -1,4 +1,6 @@
 package com.capgemini.wsb.fitnesstracker.statistics.api;
+import com.capgemini.wsb.fitnesstracker.user.api.User;
+import io.micrometer.core.instrument.Statistic;
 
 import java.util.Optional;
 
@@ -13,4 +15,12 @@ public interface StatisticsProvider {
      */
     Optional<Statistics> getStatistics(Long statisticsId);
 
+    /**
+     * LAST_CHANCE: Updates existing statistics
+     * @param user existing user id
+     * @param  statisticDTO to be updated
+     * @return updated existing training
+     */
+
+    Statistics updateExistingStatisticByUser(StatisticDTO statisticDTO, User user);
 }

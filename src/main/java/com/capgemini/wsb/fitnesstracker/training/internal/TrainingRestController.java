@@ -90,4 +90,17 @@ class TrainingRestController {
         return trainingService.updateExistingTraining(trainingDto, trainingId);
     }
 
+    /**
+     * LAST_CHANCE: Show trainings that are longer than X km(s)
+     * @param distance training distance
+     * @return training list
+     */
+    @GetMapping("/finished/{distance}")
+    public List<TrainingDTO>getAllTrainingsAboveXKM(double distance) {
+        return trainingService.getAllTrainingsEqualXKM(distance)
+                .stream()
+                .map(trainingMapper::todto)
+                .toList();
+    }
+
 }

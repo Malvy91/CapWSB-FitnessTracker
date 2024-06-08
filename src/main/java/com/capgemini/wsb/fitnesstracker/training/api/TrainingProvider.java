@@ -58,4 +58,11 @@ public interface TrainingProvider {
      */
     Training updateExistingTraining(TrainingDTO trainingDto, long trainingId);
 
+    /**
+     * LAST_CHANCE: Show trainings that are longer than X km(s)
+     * @param distance training distance // for example 5 kms
+     * @return training list
+     */
+    List<Training> getAllTrainingsEqualXKM(double distance);
+
 }
